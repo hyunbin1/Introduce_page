@@ -1,3 +1,4 @@
+/* 태그들 기본 설정 */
 body,
 ul,
 h2,
@@ -37,8 +38,10 @@ body {
 
 
 /*  사진 크기 조정 */
-.team_item {
+.team-item {
     flex-basis: 100px;
+    /* hover했을때 대상 예외의 프로필들 사이즈 유지하기 */
+    flex-shrink: 0;
     /* 0 = 상하단, 10px =좌우 */
     margin: 0 10px;
     transition: all .4s;
@@ -52,16 +55,54 @@ body {
 }
 
 
-.team_item img {
-    /* 100%는 부모 상속을 기준으로 하기 때문에 1team_item에서 100px이였던 부분에 꽉차게 들어오게 만듬 */
+.team-item img {
+    /* 100%는 부모 상속을 기준으로 하기 때문에 1team-item에서 100px이였던 부분에 꽉차게 들어오게 만듬 */
     width: 100%;
 }
+
+
+
+
+/* ---------------------------------profile----------------------------------------- */
+
+
+
+
+
 
 .profile {
     background-color: #222;
     /* 각 프로필이 구분되는 상대적인 위치를 만들어줌 */
     position: relative;
+    /* 프로필 내용이 많아서 자기 범위를 넘어서 침범했을때  */
+    overflow: hidden;
 }
+
+
+.profile_red {
+    color: #ff4949;
+}
+
+.profile_beige {
+    color: beige
+}
+
+.profile_green {
+    color: green
+}
+
+.profile_pink {
+    color: pink
+}
+
+.profile_purple {
+    color: purple
+}
+
+
+
+
+
 
 .profile_contents {
     /* 공간을 차지하지 않고 설명 상단에 붙어서 뜨게 설정해줌 */
@@ -69,7 +110,6 @@ body {
     left: 0;
     bottom: 0;
     padding: 10px;
-    color: white;
 }
 
 .profile-contents h2 {
@@ -84,5 +124,7 @@ body {
 }
 
 .profile-contents p {
-    display: none;
+    color: white;
+    font-size: 12px;
+    min-width: width 140px;
 }
