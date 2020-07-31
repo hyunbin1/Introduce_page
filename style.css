@@ -39,7 +39,7 @@ body {
 
 /*  사진 크기 조정 */
 .team-item {
-    flex-basis: 100px;
+    flex-basis: 150px;
     /* hover했을때 대상 예외의 프로필들 사이즈 유지하기 */
     flex-shrink: 0;
     /* 0 = 상하단, 10px =좌우 */
@@ -49,7 +49,7 @@ body {
 
 /* 마우스를 가져다 댔을때 작동할 수 있게 만드는 가상 클레스 */
 .team-item:hover {
-    flex-basis: 160px;
+    flex-basis: 200px;
     /* hover 했을 때 좌우 더 벌려주기 */
     margin: 0 20px;
 }
@@ -60,7 +60,10 @@ body {
     width: 100%;
 }
 
-
+/* 프로필 contents p 에서 내용물을 숨겼기 때문에 hover 했을때 내용물이 뜨게 만들어 줘야됨. */
+.team-item:hover .profile-contents p {
+    max-height: 200px;
+}
 
 
 /* ---------------------------------profile----------------------------------------- */
@@ -76,6 +79,25 @@ body {
     position: relative;
     /* 프로필 내용이 많아서 자기 범위를 넘어서 침범했을때  */
     overflow: hidden;
+}
+
+/* 프로필 내용이 너무 안보여서 그라데이션을 첨가하려고 함.  */
+.profile:before {
+    content: ' ';
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.95+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#f2000000', GradientType=0);
+    /* IE6-9 */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 200px;
 }
 
 
@@ -104,12 +126,12 @@ body {
 
 
 
-.profile_contents {
+.profile-contents {
     /* 공간을 차지하지 않고 설명 상단에 붙어서 뜨게 설정해줌 */
     position: absolute;
     left: 0;
     bottom: 0;
-    padding: 10px;
+    padding: 5px;
 }
 
 .profile-contents h2 {
@@ -120,11 +142,25 @@ body {
 .profile-contents h2 span {
     /* 밑으로 줄바꿈 */
     display: block;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .profile-contents p {
     color: white;
-    font-size: 12px;
-    min-width: width 140px;
+    font-size: 14px;
+    min-width: width 200px;
+    max-height: 0;
+    overflow: hidden;
+    line-height: 1.2;
+    transition: all .4s;
+    /* 투명도 */
+    opacity: 0;
+    transition-delay: .4s;
+}
+
+.team-item:hover .profile-contents p {
+    opacity: 1;
+    max-height: 6em;
+    /* 이름과 내용 띄우기 */
+    margin-top: 0.5em;
 }
