@@ -1,0 +1,32 @@
+body,
+ul {
+    /* margin = 바깥족 여백, padding 안쪽 여백 - border을 경계로 나뉨 */
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    /* 목록앞에 붙는 모양 없애주기 */
+    list-style-type: none;
+}
+
+body {
+    background-color: #111;
+    color: #999;
+}
+
+.wrapper {
+    /* 안에 있는 팀 내용을 컨텐츠 크기만큼 줄이기 */
+    display: flex;
+    /* height = auto = 레퍼 안에 담겨져 있는 내용물의 높이 */
+    height: 100vh;
+    /* 가로세로 중간으로 만들어줌 */
+    justify-content: center;
+    align-items: center;
+}
+
+
+.team {
+    background-color: aqua;
+    display: flex;
+}
